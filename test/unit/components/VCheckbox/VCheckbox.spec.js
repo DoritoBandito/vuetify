@@ -123,8 +123,8 @@ test('VCheckbox.js', ({ mount }) => {
     wrapper.vm.$on('change', change)
     const input = wrapper.first('input')
 
-    input.trigger('keydown.enter')
-    input.trigger('keydown.space')
+    input.trigger('keyup.enter')
+    input.trigger('keyup.space')
 
     expect(change.mock.calls).toHaveLength(2)
   })
@@ -140,8 +140,8 @@ test('VCheckbox.js', ({ mount }) => {
     const change = jest.fn()
     wrapper.vm.$on('change', change)
 
-    wrapper.trigger('keydown.enter')
-    wrapper.trigger('keydown.space')
+    wrapper.trigger('keyup.enter')
+    wrapper.trigger('keyup.space')
 
     expect(change).not.toBeCalled()
   })
@@ -158,10 +158,10 @@ test('VCheckbox.js', ({ mount }) => {
     wrapper.vm.$on('change', change)
     const input = wrapper.first('input')
 
-    input.trigger('keydown.enter')
+    input.trigger('keyup.enter')
     expect(change).not.toBeCalled()
 
-    input.trigger('keydown.space')
+    input.trigger('keyup.space')
     expect(change).toBeCalled()
   })
 
