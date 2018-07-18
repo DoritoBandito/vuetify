@@ -108,7 +108,7 @@ export default {
           blur: this.onBlur,
           change: this.onChange,
           focus: this.onFocus,
-          keydown: this.onKeydown
+          keyup: this.onKeyup
         }
       })
     },
@@ -148,7 +148,7 @@ export default {
     onFocus () {
       this.isFocused = true
     },
-    onKeydown (e) {
+    onKeyup (e) {
       // Overwrite default behavior to only allow
       // the specified keyCodes
       if (this.toggleKeys.indexOf(e.keyCode) > -1) {
